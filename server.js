@@ -16,6 +16,9 @@ if (!fs.existsSync("./data/workouts.json"))
   fs.writeFileSync("./data/workouts.json", "[]");
 
 app.use("/api/workouts", authenticate, workoutRoutes);
+app.get("/", (req, res) => {
+  res.send("📚 Advanced Fitness Tracker API is running successfully!");
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
